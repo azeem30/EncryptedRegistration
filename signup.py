@@ -141,7 +141,6 @@ class Ui_SignUp(object):
             self.insert_data()
             self.message.setStyleSheet("color: rgb(0, 255, 0);")
             self.message.setText("Registered Successfully!")
-            self.display()
 
     def create_table(self):
         try:
@@ -172,16 +171,6 @@ class Ui_SignUp(object):
             self.message.setText(str(e))
         finally:
             return self.enc_string
-
-    def display(self):
-        try:
-            query = '''SELECT * FROM USERS;'''
-            results = self.cursor.execute(query)
-            for result in results:
-                print(result)
-            self.conn.commit()
-        except Exception as e:
-            self.message.setText(str(e))
 
     def open_login(self):
         import login
